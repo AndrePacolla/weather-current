@@ -32,8 +32,8 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-center font-bold text-white text-6xl py-11">Previsão do Tempo</h1>
         <div>
-          <input className="w-80 h-10 p-3 rounded-md " ref={inputRef} type="text" placeholder="Digite  nome da cidade ..."/>
-          <button onClick={searchCity} className="rounded-md bg-orange-500 text-white p-2 font-bold">Buscar</button>
+          <input className="w-80 h-9 p-4 rounded-s-3xl border-none text-lg outline-none " ref={inputRef} type="text" placeholder="Digite  nome da cidade ..."/>
+          <button onClick={searchCity} className="h-9 rounded-e-3xl bg-orange-500 text-white text-md p-2 px-5 font-bold hover:opacity-75">Buscar</button>
         </div>
         <div className="w-full max-w-6xl mx-auto mt-10 ">
           { weather && <WeatherInformation weather={weather}/>}
