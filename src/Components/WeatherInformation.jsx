@@ -20,9 +20,10 @@ export const  WeatherInformation = ({weather}) => {
                 <p>Sensação Térmica:{Math.round(weather.main.feels_like)} °C </p>
                 <p>Umidade:{Math.round(weather.main.humidity)}%</p>
                 <p>Presão: {weather.main.pressure}</p>
-             </div>
-                     
-            
+             </div>  
         </div>   
 );
 }
+
+
+

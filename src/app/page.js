@@ -16,9 +16,12 @@ export default function Home() {
 
     
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`;
-    // criando endereço de requisição
+    const url5Days = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&lang=pt_br&units=metric`
 
     const apiInfo = await axios.get(url);
+    const apiInfo5dDays = await axios.get(url5Days);
+
+    console.log(apiInfo5dDays);
 
     setWeather(apiInfo.data);
 
@@ -40,8 +43,6 @@ export default function Home() {
 
         </div>
           
-
-
       </div>
     </div>
   );
