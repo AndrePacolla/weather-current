@@ -1,6 +1,6 @@
 export const  WeatherInformation = ({weather}) => {
     
-    console.log(weather)
+
 
     return(
         <div className="bg-white/70 p-5 text-center rounded-xl font-bold">

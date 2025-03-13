@@ -1,12 +1,15 @@
 "use client"
 
-import { useState, useRef } from "react";
-import {WeatherInformation} from "../Components/WeatherInformation"
 import axios from "axios";
+import { useState, useRef } from "react";
+import {WeatherInformation} from "../Components/WeatherInformation";
+import {Weather5DaysInformation} from "../Components/Weather5DaysInformation";
 
 export default function Home() {
 
   const [weather, setWeather] = useState();
+  const [weather5Days, setWeather5Days] = useState();
+
   const inputRef = useRef();
 
   const searchCity = async () => {
@@ -19,11 +22,10 @@ export default function Home() {
     const url5Days = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&lang=pt_br&units=metric`
 
     const apiInfo = await axios.get(url);
-    const apiInfo5dDays = await axios.get(url5Days);
-
-    console.log(apiInfo5dDays);
+    const apiInfo5Days = await axios.get(url5Days);
 
     setWeather(apiInfo.data);
+    setWeather5Days(apiInfo5Days.data);
 
   };
 
@@ -40,6 +42,8 @@ export default function Home() {
         </div>
         <div className="w-full max-w-6xl mx-auto mt-10 ">
           { weather && <WeatherInformation weather={weather}/>}
+
+          {weather5Days && <Weather5DaysInformation weather5Days={weather5Days}/>}
 
         </div>
           
