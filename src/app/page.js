@@ -42,7 +42,6 @@ export default function Home() {
         </div>
         <div className="w-full max-w-6xl mx-auto mt-10 ">
           { weather && <WeatherInformation weather={weather}/>}
-
           {weather5Days && <Weather5DaysInformation weather5Days={weather5Days}/>}
 
         </div>
