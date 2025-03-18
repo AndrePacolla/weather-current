@@ -14,11 +14,14 @@ export const  Weather5DaysInformation = ({weather5Days}) => {
     };
     
         const nextFiveDays = Object.values(dailyForecast).slice(1,6);
+        
 
         const convertDate = (date) => {
 
             const newDate = new Date(date.dt * 1000).toLocaleDateString("pt-BR", {weekday:"long", day:"2-digit"})
-            return newDate ;
+            // converter dia da semana.
+            return newDate;
+            
         }
 
 
@@ -26,19 +29,20 @@ export const  Weather5DaysInformation = ({weather5Days}) => {
 
         return(
             <div className="bg-white/70 p-5 text-center  rounded-xl font-bold mt-10">
-                    <p className="text-3xl mb-12 text-orange-400">Previsão de 5 Dias </p>
-
+                 <h3 className="text-3xl mb-10 mt-5 text-orange-400">Próximos 5 Dias </h3>
+                 <div className="flex justify-between  p-5 text-center ">   
                     {nextFiveDays.map(forecast =>(
-                      <div key={forecast.dt} className="  bg-red-400">
+                      <div className=" ml-3 bg-gray-400/40 p-10 rounded-lg " key={forecast.dt}>
                            
-                        <p>{convertDate(forecast)}</p>
-                        <img src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="icon" />
-                         <p>{forecast.weather[0].description}</p>   
-                         <p>{Math.round(forecast.main.temp_min)} °C min  / {Math.round(forecast.main.temp_max)} °C máx </p>
+                        <p className="my-5 text-2xl font-bold">{convertDate(forecast)}</p>
+                        <img className="p-8" src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="icon" />
+                         <p className="my-5">{forecast.weather[0].description}</p>   
+                         <p className="my-5">{Math.round(forecast.main.temp_min)} °C min  / {Math.round(forecast.main.temp_max)} °C máx </p>
                       </div>
                       
-                       ))}
+                    ))}
 
+                  </div>
              </div>   
         );
  }
